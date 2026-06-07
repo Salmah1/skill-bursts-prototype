@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/homeanimate.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+
+    <div id="hero-section">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Riddle Realm</h1>
+        </div>
+        <div class="hero-graphics">
+          <div class="circle"></div>
+          <div class="square"></div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <div id="hero-section2">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+              <h3>Personal Dashboard</h3>
+              <div class="daily-streaks d-flex justify-content-center">
+                <div class="streak">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-fire"></i>
+                  <i class="fas fa-fire"></i>
+                  <i class="fas fa-fire"></i>
+                  <a
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#streakExplanationModal"
+                  >
+                    <i class="fas fa-question-circle"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">
+          <div
+            class="modal fade"
+            id="streakExplanationModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalLabel">
+                    Streaks Explanation
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    One <i class="fas fa-star"></i> represents a streak of 5
+                    days.
+                  </p>
+                  <p>
+                    One <i class="fas fa-fire"></i> represents a streak of 1
+                    day.
+                  </p>
+                  <p>
+                    8 days total, keep it up!
+                    <i class="fas fa-smile" style="color: green"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5 animate-fade-in">
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+            <div class="card">
+              <i class="fas fa-gamepad"></i>
+              <h3>SOKOBAN</h3>
+              <p>Click to go to Sokoban</p>
+              <a th:href="@{/RiddleRealm/problem-solving-sokoban}" class="btn"
+                >START</a
+              >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <i class="fas fa-skull"></i>
+              <h3>WORDLE</h3>
+              <p>Go to Wordle</p>
+              <a th:href="@{/RiddleRealm/problem-solving-wordle}" class="btn"
+                >START</a
+              >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <i class="fas fa-skull"></i>
+              <h3>SCRATCH</h3>
+              <p>Click to play Scratch</p>
+              <a th:href="@{/RiddleRealm}" class="btn">START</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="horizontal-sections">
+            <div class="achievements-section col-md-12 text-center card">
+              <h4 class="card-title">Achievements</h4>
+              <div class="achievements">
+                <i class="fas fa-trophy achievement-icon"></i>
+                <i class="fas fa-medal achievement-icon"></i>
+                <i class="fas fa-award achievement-icon"></i>
+                <i class="fas fa-star achievement-icon"></i>
+                <i class="fas fa-crown achievement-icon"></i>
+                <i class="fas fa-anchor achievement-icon"></i>
+                <i class="fas fa-feather achievement-icon"></i>
+                <i class="fas fa-heart achievement-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5 animate-fade-in">
+      <div class="row">
+        <div class="col-md-8">
+          <section class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Profile</h4>
+                <p>Have not completed your<b> profile</b>?</p>
+                <p>
+                  Link to create <a href="/RiddleRealm/welcome">your profile</a>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Skill Tree Section -->
+          <section class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Skill Path</h4>
+                <!-- Skill List -->
+                <!-- Skill 1 with Modal-->
+                <div class="col-md-12">
+                  <div class="card h-100">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <img
+                          src="/images/skill1.png"
+                          class="card-img-top"
+                          alt="Skill 1 Image"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body">
+                          <!-- Info Icon Button Triggering the Modal -->
+                          <h5>
+                            Logical Thinking and Problem-Solving
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#logicalThinkingModal"
+                            >
+                              <i
+                                class="fa fa-info-circle"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </h5>
+                          <!-- Modal -->
+                          <div
+                            class="modal fade animate-fade-in"
+                            id="logicalThinkingModal"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="logicalThinkingModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title"
+                                    id="logicalThinkingModalLabel"
+                                  >
+                                    Logical Thinking and Problem-Solving
+                                  </h5>
+                                  <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                  >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>
+                                    Logical Thinking and Problem-Solving skills
+                                    involve the ability to analyze situations,
+                                    identify patterns, and come up with
+                                    effective solutions to challenges. These
+                                    skills are essential for tackling complex
+                                    problems in a structured and systematic way,
+                                    enhancing decision-making and innovation.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <p class="card-text">
+                            Current level: 2
+                            <i
+                              class="fas fa-smile-wink"
+                              style="color: green"
+                            ></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Skill 2 with Modal -->
+                <div class="col-md-12">
+                  <div class="card h-100">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <img
+                          src="/images/skill2.png"
+                          class="card-img-top"
+                          alt="Skill 2 Image"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body">
+                          <h5>
+                            Spatial Awareness
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#spatialAwarenessModal"
+                            >
+                              <i
+                                class="fa fa-info-circle"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </h5>
+                          <!-- Modal for Skill 2 -->
+                          <div
+                            class="modal fade"
+                            id="spatialAwarenessModal"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="spatialAwarenessModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title"
+                                    id="spatialAwarenessModalLabel"
+                                  >
+                                    Spatial Awareness
+                                  </h5>
+                                  <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                  >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>
+                                    Spatial Awareness refers to the
+                                    understanding of objects in space and their
+                                    relations to each other. It involves
+                                    visualizing different scenarios and
+                                    outcomes, which is crucial for tasks
+                                    requiring good orientation, navigation, and
+                                    the manipulation of objects, both in the
+                                    physical and abstract realms.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="card-text">
+                            Current level: 6
+                            <i class="fas fa-smile" style="color: green"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Skill 3 with Modal -->
+                <div class="col-md-12">
+                  <div class="card h-100">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <img
+                          src="/images/skill3.png"
+                          class="card-img-top"
+                          alt="Skill 3 Image"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body">
+                          <h5>
+                            Vocabulary and Language Comprehension
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#vocabularyLanguageModal"
+                            >
+                              <i
+                                class="fa fa-info-circle"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </h5>
+                          <!-- Modal for Skill 3 -->
+                          <div
+                            class="modal fade"
+                            id="vocabularyLanguageModal"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="vocabularyLanguageModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title"
+                                    id="vocabularyLanguageModalLabel"
+                                  >
+                                    Vocabulary and Language Comprehension
+                                  </h5>
+                                  <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                  >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>
+                                    Vocabulary and Language Comprehension skills
+                                    encompass the range of words an individual
+                                    understands and uses effectively, as well as
+                                    the ability to grasp the meaning, context,
+                                    and nuances of language. These skills are
+                                    fundamental for effective communication,
+                                    reading comprehension, and linguistic
+                                    creativity.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="card-text">
+                            Current level: Max(10)
+                            <i
+                              class="fas fa-smile-beam"
+                              style="color: green"
+                            ></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Skill 4 with Modal -->
+                <div class="col-md-12">
+                  <div class="card h-100">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <img
+                          src="/images/skill4.png"
+                          class="card-img-top"
+                          alt="Skill 4 Image"
+                        />
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card-body">
+                          <h5>
+                            Decision Making
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#decisionMakingModal"
+                            >
+                              <i
+                                class="fa fa-info-circle"
+                                aria-hidden="true"
+                              ></i>
+                            </a>
+                          </h5>
+                          <!-- Modal for Skill 4 -->
+                          <div
+                            class="modal fade"
+                            id="decisionMakingModal"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="decisionMakingModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title"
+                                    id="decisionMakingModalLabel"
+                                  >
+                                    Decision Making
+                                  </h5>
+                                  <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                  >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>
+                                    Decision-Making skills involve evaluating
+                                    information, weighing the pros and cons of
+                                    different options, and choosing the most
+                                    appropriate course of action. Good
+                                    decision-making is essential for personal
+                                    and professional success, as it leads to
+                                    better outcomes and the efficient use of
+                                    resources.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="card-text">
+                            Current level: 8
+                            <i class="fas fa-smile" style="color: green"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Opportunities Near You</h4>
+                <div id="map" style="width: 100%; height: 400px"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="hero-section3" class="col-md-4">
+          <!-- Unlocked Opportunities Section -->
+          <section class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Unlocked Opportunities</h4>
+                <div class="media mb-3">
+                  <img
+                    src="/images/sre.png"
+                    class="align-self-start mr-3 img-thumbnail"
+                    alt="Badge 1"
+                    title="Beginner"
+                    style="height: 80px; width: 80px"
+                  />
+                  <div class="media-body">
+                    <h5 class="mt-0">Site Reliability Engineer</h5>
+                    <p>
+                      Work at the intersection of software and systems
+                      engineering.
+                    </p>
+                    <button class="accept-btn">Accept</button>
+                  </div>
+                </div>
+                <div class="media">
+                  <img
+                    src="/images/ch.png"
+                    class="align-self-start mr-3 img-thumbnail"
+                    alt="Badge 1"
+                    title="Beginner"
+                    style="height: 80px; width: 80px"
+                  />
+                  <div class="media-body">
+                    <h5 class="mt-0">Consumer Hardware</h5>
+                    <p>
+                      Design and build the systems that are the heart of the
+                      world's largest and most powerful computing infrastructure
+                      and products.
+                    </p>
+                    <button class="accept-btn">Accept</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Locked Opportunities Section -->
+          <section class="mb-4">
+            <div class="card">
+              <div class="locked-bgimg">
+                <div class="card-body">
+                  <h4 class="card-title">Locked Opportunities</h4>
+                  <div class="media mb-3">
+                    <img
+                      src="/images/cloud.png"
+                      class="align-self-start mr-3 img-thumbnail job-description"
+                      alt="Badge 1"
+                      title="Beginner"
+                      style="height: 80px; width: 80px"
+                    />
+                    <div class="media-body job-description">
+                      <h5 class="mt-0">Cloud Solutions Architect</h5>
+                      <p>
+                        Craft innovative cloud architectures and solutions for
+                        diverse clients, driving the digital transformation
+                        journey and leveraging cutting-edge cloud technologies.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="media">
+                    <img
+                      src="/images/data.png"
+                      class="align-self-start mr-3 img-thumbnail job-description"
+                      alt="Badge 1"
+                      title="Beginner"
+                      style="height: 80px; width: 80px"
+                    />
+                    <div class="media-body job-description">
+                      <h5 class="mt-0">Data Scientist</h5>
+                      <p>
+                        Dive into vast oceans of data to extract meaningful
+                        insights and build predictive models that empower
+                        decision-making and strategic planning in various
+                        industries.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Multiplayer -->
+          <section class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Multiplayer Portal</h4>
+                <p>Face your friends in HERE!</p>
+                <button>
+                  <a th:href="@{/RiddleRealm}" class="btn">START</a>
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.10/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function initMap() {
+        var center = { lat: 51.4816, lng: -3.1791 };
+
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: center,
+        });
+        var marker = new google.maps.Marker({
+          position: center,
+          map: map,
+          title: "Your Positon",
+        });
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key="
+    ></script>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

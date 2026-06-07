@@ -1,0 +1,180 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic3-Regular.ttf") format("truetype");
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    filter 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #f8f9fa;
+}
+
+body.sans-serif {
+  font-family: "OpenDyslexic", Arial, sans-serif;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.btn {
+  background-color: #c39bd3;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #a07eae;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.setting-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.setting-group p {
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn label {
+  margin-left: 10px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #a8d0e6, #c39bd3);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.hero-graphics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.circle,
+.square,
+.triangle {
+  position: absolute;
+  opacity: 0.3;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #c39bd3;
+  top: -100px;
+  left: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: #f76c6c;
+  bottom: -75px;
+  right: -75px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 200px solid #a8d0e6;
+  top: 50px;
+  right: 100px;
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

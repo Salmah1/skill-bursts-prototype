@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Problem Solving</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/sokoban.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Welcome to SOKOBAN!</h1>
+        <p>
+          Spatial Reasoning | Strategic Planning | Pattern Recognition |
+          Adaptability | Perseverance | Time Management
+        </p>
+      </div>
+      <div class="hero-graphics">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <h2>Current Level: <span id="current-level">1</span></h2>
+      <div class="level-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <path
+            id="star-path"
+            d="M 50 0 L 60.5 39.5 L 100 50 L 60.5 60.5 L 50 100 L 39.5 60.5 L 0 50 L 39.5 39.5 Z"
+          />
+        </svg>
+        <div id="level-progress" class="level-progress"></div>
+      </div>
+    </div>
+    <section class="about-us">
+      <div class="about-us-image"></div>
+      <div class="about-us-content">
+        <h2>Opportunities</h2>
+        <strong><div id="progress-message"></div></strong>
+      </div>
+    </section>
+
+    <div class="card-container">
+      <div class="card">
+        <i class="fas fa-gamepad"></i>
+        <h3>GO TO SOKOBAN</h3>
+        <p>You have 10s to go through the maze and find the fruit!</p>
+        <p>
+          Use Your arrow keys to start (ps. the timer only starts after you
+          first move!)
+        </p>
+        <a th:href="@{/RiddleRealm/sokoban}" class="btn">START</a>
+      </div>
+      <div class="card">
+        <i class="fas fa-skull"></i>
+        <h3>Face the Final Challenge</h3>
+        <p>This unlocks at level 100!!!!</p>
+        <a
+          id="boss-button"
+          href="#"
+          class="btn"
+          style="display: none"
+          onclick="goToBossLevel()"
+          >START</a
+        >
+      </div>
+    </div>
+
+    <script>
+      function updateProgressMessage(level) {
+        const progressMessage = document.getElementById("progress-message");
+        if (level >= 1 && level <= 19) {
+          progressMessage.textContent =
+            "As you progress through levels 1-19, you're developing fundamental problem-solving skills. The game challenges your spatial reasoning abilities as you navigate the grid-based environment and plan optimal paths to reach the target. Strategic planning is crucial to complete each level efficiently, considering the positioning of walls, the player, and the target.\nAs you progress you will get some opportunities show up!";
+        } else if (level >= 20 && level <= 39) {
+          progressMessage.textContent =
+            "Congratulations on reaching levels 20-39! Have a look at FutureLearn its free! bit.ly/3OfrtvX great work!";
+        } else if (level >= 40 && level <= 59) {
+          progressMessage.textContent =
+            "Impressive! You've made it to levels 40-59. Your pattern recognition skills are developing as you identify similarities in level designs, allowing you to apply previously learned strategies to new challenges. The dynamic adjustment of scores based on your performance adds an extra layer of motivation to optimize your moves.";
+        } else if (level >= 60 && level <= 79) {
+          progressMessage.textContent =
+            "Well done on reaching levels 60-79! Your perseverance and resilience are commendable. Some levels may prove challenging, but you've learned to view failures as opportunities for learning and improvement. The increasing grid size and complexity of levels further test your spatial reasoning and adaptability skills.";
+        } else if (level >= 80 && level <= 99) {
+          progressMessage.textContent =
+            "Outstanding progress! At level 80 and beyond, your problem-solving skills are reaching new heights. The game's intelligent level generation ensures that each challenge is unique, pushing you to think outside the box. The calculation of ideal moves adds a competitive element, encouraging you to strive for optimal solutions.";
+        } else if (level === 100) {
+          progressMessage.textContent =
+            "Congratulations on conquering the final challenge at level 100! You have demonstrated exceptional problem-solving and logical reasoning skills. Your spatial reasoning abilities allowed you to navigate the massive 20x20 grid with ease. Your strategic planning and adaptability were put to the ultimate test, and you emerged victorious. The time pressure added an extra layer of difficulty, but your efficient decision-making and perseverance shone through. The dynamic scoring system acknowledged your optimal moves, rewarding your hard work and dedication. You've showcased an unwavering growth mindset, viewing each challenge as an opportunity to learn and improve. These skills are invaluable not only in Sokoban but in real-life problem-solving scenarios as well. Well done on this outstanding achievement! Your ability to tackle complex problems head-on and find effective solutions will undoubtedly lead to success in your future endeavors. Keep up the excellent work and continue honing your problem-solving skills. Remember, every challenge you overcome strengthens your ability to face future obstacles with confidence and resilience.";
+        } else {
+          progressMessage.textContent = "";
+        }
+      }
+
+      function updateLevelProgress(level) {
+        const progressBar = document.getElementById("level-progress");
+        const currentLevelElement = document.getElementById("current-level");
+        currentLevelElement.textContent = level;
+
+        const progress = Math.floor(level / 20) * 20;
+        const fillPercentage = progress / 100;
+
+        progressBar.style.clipPath = `polygon(50% 0%, ${50 + fillPercentage * 10.5}% ${39.5 * fillPercentage}%, 100% 50%, ${50 + fillPercentage * 10.5}% ${60.5 + (1 - fillPercentage) * 39.5}%, 50% 100%, ${50 - fillPercentage * 10.5}% ${60.5 + (1 - fillPercentage) * 39.5}%, 0% 50%, ${50 - fillPercentage * 10.5}% ${39.5 * fillPercentage}%)`;
+
+        // Calculate the color percentage based on the progress
+        const colorPercentage = level;
+        document.body.style.filter = `grayscale(${100 - colorPercentage}%)`;
+
+        if (level >= 100) {
+          document.body.classList.add("color");
+        }
+      }
+      function goToBossLevel() {
+        localStorage.setItem("currentLevel", 100);
+        window.location.href = "/RiddleRealm/sokoban";
+      }
+
+      const currentLevel = parseInt(localStorage.getItem("currentLevel")) || 1;
+      updateLevelProgress(currentLevel);
+      updateProgressMessage(currentLevel);
+
+      const bossButton = document.getElementById("boss-button");
+      if (currentLevel === 99) {
+        bossButton.style.display = "inline-block";
+      }
+    </script>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

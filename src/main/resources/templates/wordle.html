@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wordle Game</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/wordle.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+
+    <div class="wordle-game">
+      <div class="hero">
+        <div class="hero-content">
+          <h2>Welcome to Wordle!</h2>
+          <p id="number"></p>
+        </div>
+        <div class="hero-graphics">
+          <div class="circle"></div>
+          <div class="square"></div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <br /><br />
+      <div class="hero-content">
+        <input type="text" id="guess" placeholder="Enter guess here" />
+        <button class="btn" id="submit-btn">Submit</button>
+        <ul id="guess-list"></ul>
+        <div id="btn-nxtlvl">
+          <button class="btn" id="nxtlvl" style="visibility: hidden">
+            Next Level
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/wordle.js}"></script>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

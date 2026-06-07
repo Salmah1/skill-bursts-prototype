@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Problem Solving</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/sokoban.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Welcome to WORDLE!</h1>
+        <p>
+          Vocabulary Expansion | Cognitive Agility | Problem-Solving Abilities |
+          Focus | Attention | Social Engagement
+        </p>
+      </div>
+      <div class="hero-graphics">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+      </div>
+    </div>
+
+    <div class="level-container">
+      <h2>Current Level: <span id="current-level">1</span></h2>
+      <div class="level-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <path
+            id="star-path"
+            d="M 50 0 L 60.5 39.5 L 100 50 L 60.5 60.5 L 50 100 L 39.5 60.5 L 0 50 L 39.5 39.5 Z"
+          />
+        </svg>
+        <div id="level-progress" class="level-progress"></div>
+      </div>
+    </div>
+    <section class="about-us">
+      <div class="about-us-image"></div>
+      <div class="about-us-content">
+        <h2>Opportunities</h2>
+        <strong><div id="progress-message"></div></strong>
+      </div>
+    </section>
+    <div class="card-container">
+      <div class="card">
+        <i class="fas fa-gamepad"></i>
+        <h3>GO TO WORDLE</h3>
+        <p>Try to guess the word that's been hidden from you!</p>
+        <p>
+          GREEN means that the letter is in the right spot, YELLOW means it's in
+          the word but not in the right spot and WHITE means it is not present
+          in the word at all!
+        </p>
+        <a th:href="@{/RiddleRealm/wordle}" class="btn">START</a>
+      </div>
+    </div>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

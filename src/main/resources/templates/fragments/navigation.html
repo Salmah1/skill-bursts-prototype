@@ -1,0 +1,17 @@
+<!-- navigation.html -->
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <nav th:fragment="nav">
+      <ul>
+        <li><a th:href="@{/RiddleRealm}">Home</a></li>
+        <li><a th:href="@{/RiddleRealm/welcome}">Welcome</a></li>
+        <li><a th:href="@{/RiddleRealm/login}">Login</a></li>
+        <li><a th:href="@{/RiddleRealm/accessibility}">Accessibility</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

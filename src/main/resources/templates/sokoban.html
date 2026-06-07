@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sokoban Game</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/sokoban.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+    <div id="game-container">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Sokoban Game</h1>
+          <p>
+            Level: <span id="level">1</span> | Moves:
+            <span id="moves">0</span> | Stopwatch:
+            <span id="stopwatch">0</span> seconds
+          </p>
+        </div>
+        <div class="hero-graphics">
+          <div class="circle"></div>
+          <div class="square"></div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <div id="game-board"></div>
+      <p></p>
+      <section class="about-us">
+        <div class="about-us-image"></div>
+        <div class="about-us-content">
+          <h2>Our thoughts</h2>
+          <p id="importance-message" class="message"></p>
+        </div>
+      </section>
+      <div class="card-container">
+        <div class="card">
+          <i class="fas fa-gamepad"></i>
+          <h3>Game Info</h3>
+          <p>
+            Once lvl 99 head back to the problem-solving page when you're ready
+            for the final challenge.
+          </p>
+          <a
+            th:href="@{/RiddleRealm/problem-solving-sokoban}"
+            class="btn"
+            onclick="goToProblemSolving()"
+            >Go to Problem Solving</a
+          >
+        </div>
+        <div class="card">
+          <i class="fas fa-sync"></i>
+          <h3>Reset Level</h3>
+          <p>Click to reset level back to 0</p>
+          <a
+            id="boss-button"
+            href="#"
+            class="btn"
+            style="display: none"
+            onclick="goToBossLevel()"
+            >START BOSS</a
+          >
+          <button class="btn" onclick="resetLevel()">Reset Level</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/prompts.js"></script>
+    <script src="/js/sokoban.js"></script>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

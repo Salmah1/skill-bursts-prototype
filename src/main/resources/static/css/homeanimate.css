@@ -1,0 +1,338 @@
+.progress-section {
+    margin-bottom: 30px;
+}
+#hero-section .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+#hero-section .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+#hero-section .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+#hero-section2 h3 {
+    font-size: 2rem;
+    margin: 0 0.3rem;
+}
+
+#hero-section2 .daily-streaks .streak i {
+    font-size: 2rem;
+    margin: 0 0.3rem;
+}
+
+#hero-section2 .daily-streaks {
+    display: flex;
+    align-items: center;
+}
+
+#hero-section .hero-graphics {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#hero-section .circle, .square, .triangle {
+    position: absolute;
+    opacity: 0.3;
+}
+
+#hero-section .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    top: -100px;
+    left: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+#hero-section .square {
+    width: 150px;
+    height: 150px;
+    background-color: var(--tertiary-color);
+    bottom: -75px;
+    right: -75px;
+    animation: float 5s ease-in-out infinite;
+}
+
+#hero-section .triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 200px solid var(--primary-color);
+    top: 50px;
+    right: 100px;
+    animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Rest of the CSS code remains the same */
+
+#hero-section .progress-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#hero-section .progress-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#hero-section .step-content {
+    display: flex;
+    align-items: center;
+}
+
+#hero-section .step-content i {
+    margin-right: 5px;
+}
+
+#hero-section .progress-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#hero-section .progress-nav i {
+    font-size: 20px;
+    cursor: pointer;
+}
+#hero-section .horizontal-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#hero-section .achievements-section,
+.opportunities-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#hero-section .achievements,
+.opportunities {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#hero-section .achievement-icon,
+.opportunity {
+    margin-right: 20px;
+}
+
+#hero-section .card-carousel {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+#hero-section .card-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+#hero-section .card {
+    background: linear-gradient(white, #f0f0f0);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    width: 300px;
+    margin-bottom: 2rem;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-section .card::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#hero-section .card:hover {
+    transform: scale(1.05);
+}
+
+#hero-section .card:hover::before {
+    opacity: 0.3;
+}
+
+#hero-section .card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+#hero-section .card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+#hero-section .card p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+#hero-section .btn {
+    display: inline-block;
+    background-color: var(--tertiary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.accept-btn{
+    display: inline-block;
+    background-color: var(--tertiary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+#hero-section .btn:hover {
+    background-color: #F44336;
+}
+
+
+#hero-section .achievements-card,
+.opportunities-card {
+    margin-bottom: 30px;
+}
+
+#hero-section .achievements {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#hero-section .achievement-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-bottom: 20px;
+}
+#hero-section .achievement-icon i {
+     font-size: 24px;
+}
+
+#hero-section .card:hover .achievement-icon{
+    background-color:rgba(231,224,238,255);
+}
+#hero-section .opportunities {
+    margin-top: 20px;
+}
+
+#hero-section .opportunity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#hero-section .opportunity-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#hero-section .opportunity-details h5 {
+    margin-bottom: 5px;
+}
+
+#hero-section3 .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+#hero-section3 .card::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#hero-section3 .card:hover {
+    transform: scale(1.05);
+}
+
+#hero-section3 .card:hover::before {
+    opacity: 0.3;
+}
+
+.locked-bgimg{
+    background-color:rgba(159, 157, 158, 0.12);
+}
+
+.locked-bgimg:hover {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+.job-description {
+    filter: blur(3px);
+}

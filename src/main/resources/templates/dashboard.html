@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}" />
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div th:replace="fragments/navigation :: nav"></div>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Welcome to SkillsBurst!</h1>
+        <p>Let's create your profile and unlock your potential.</p>
+      </div>
+      <div class="hero-graphics">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="conversation">
+        <div class="options fade-in" id="pronouns-section">
+          <h2>What are your pronouns?</h2>
+          <ul>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="pronouns"
+                value="he/him"
+                id="pronouns-he-him"
+              />
+              <label for="pronouns-he-him">He/Him</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="pronouns"
+                value="she/her"
+                id="pronouns-she-her"
+              />
+              <label for="pronouns-she-her">She/Her</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="pronouns"
+                value="they/them"
+                id="pronouns-they-them"
+              />
+              <label for="pronouns-they-them">They/Them</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="pronouns"
+                value="other"
+                id="pronouns-other"
+              />
+              <label for="pronouns-other">Other</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="pronouns"
+                value="prefer-not-to-say"
+                id="pronouns-prefer-not-to-say"
+              />
+              <label for="pronouns-prefer-not-to-say">Prefer not to say</label>
+            </li>
+          </ul>
+          <button
+            class="btn next-btn"
+            onclick="showNextSection('pronouns-section', 'career-section')"
+          >
+            Next
+          </button>
+        </div>
+
+        <div class="options fade-in" id="career-section" style="display: none">
+          <h2>What is your current occupation?</h2>
+          <ul>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="student"
+                id="career-student"
+              />
+              <label for="career-student">Student</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="employed"
+                id="career-employed"
+              />
+              <label for="career-employed">Employed</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="self-employed"
+                id="career-self-employed"
+              />
+              <label for="career-self-employed">Self-employed</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="unemployed"
+                id="career-unemployed"
+              />
+              <label for="career-unemployed">Unemployed</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="retired"
+                id="career-retired"
+              />
+              <label for="career-retired">Retired</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="career"
+                value="prefer-not-to-say"
+                id="career-prefer-not-to-say"
+              />
+              <label for="career-prefer-not-to-say">Prefer not to say</label>
+            </li>
+          </ul>
+          <button
+            class="btn next-btn"
+            onclick="showNextSection('career-section', 'hobbies-section')"
+          >
+            Next
+          </button>
+        </div>
+
+        <div class="options fade-in" id="hobbies-section" style="display: none">
+          <h2>What are your hobbies and interests?</h2>
+          <p>Select all that apply.</p>
+          <ul>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="gaming"
+                id="hobbies-gaming"
+              />
+              <label for="hobbies-gaming">Gaming 🎮</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="sports"
+                id="hobbies-sports"
+              />
+              <label for="hobbies-sports">Sports ⚽</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="music"
+                id="hobbies-music"
+              />
+              <label for="hobbies-music">Music 🎵</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="reading"
+                id="hobbies-reading"
+              />
+              <label for="hobbies-reading">Reading 📚</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="traveling"
+                id="hobbies-traveling"
+              />
+              <label for="hobbies-traveling">Traveling ✈️</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="cooking"
+                id="hobbies-cooking"
+              />
+              <label for="hobbies-cooking">Cooking 🍳</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="art"
+                id="hobbies-art"
+              />
+              <label for="hobbies-art">Art 🎨</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="checkbox"
+                name="hobbies"
+                value="other"
+                id="hobbies-other"
+              />
+              <label for="hobbies-other">Other</label>
+            </li>
+          </ul>
+          <button
+            class="btn next-btn"
+            onclick="showNextSection('hobbies-section', 'goals-section')"
+          >
+            Next
+          </button>
+        </div>
+
+        <div class="options fade-in" id="goals-section" style="display: none">
+          <h2>What are your future goals?</h2>
+          <ul>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="financial-stability"
+                id="goals-financial-stability"
+              />
+              <label for="goals-financial-stability">Financial stability</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="career-growth"
+                id="goals-career-growth"
+              />
+              <label for="goals-career-growth">Career growth</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="continuous-learning"
+                id="goals-continuous-learning"
+              />
+              <label for="goals-continuous-learning">Continuous learning</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="entrepreneurship"
+                id="goals-entrepreneurship"
+              />
+              <label for="goals-entrepreneurship">Entrepreneurship</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="work-life-balance"
+                id="goals-work-life-balance"
+              />
+              <label for="goals-work-life-balance">Work-life balance</label>
+            </li>
+            <li class="selectable-option">
+              <input
+                type="radio"
+                name="goals"
+                value="making-a-difference"
+                id="goals-making-a-difference"
+              />
+              <label for="goals-making-a-difference">Making a difference</label>
+            </li>
+            <li class="selectable-option">
+              <input type="radio" name="goals" value="other" id="goals-other" />
+              <label for="goals-other">Other</label>
+            </li>
+          </ul>
+          <a th:href="@{/RiddleRealm}" class="btn">Continue</a>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/dashboard.js}"></script>
+  </body>
+
+  <div th:replace="fragments/footer :: footer"></div>
+</html>

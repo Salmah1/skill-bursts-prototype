@@ -58,8 +58,8 @@ Before running the application, ensure the following software is installed:
 ### Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/Salmah1/skill-bursts-prototype.git
+cd skill-bursts-prototype
 ```
 
 ### Start the Application

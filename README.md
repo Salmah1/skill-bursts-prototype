@@ -59,7 +59,7 @@ Before running the application, ensure the following software is installed:
 
 ```bash
 git clone https://github.com/Salmah1/skill-bursts-prototype.git
-cd skill-bursts-prototype
+cd skill-bursts-prototype-main
 ```
 
 ### Start the Application

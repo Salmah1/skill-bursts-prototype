@@ -97,7 +97,7 @@ http://localhost:8080/RiddleRealm
 
 ---
 
-## Technologies Used
+## Technologies
 
 ### Backend
 
